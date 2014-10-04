@@ -9,13 +9,15 @@ public class CharPermutation {
     public static void main(String[] args) {
 
         String inputString;
-        inputString = "qwer";
-//        STRING_LENGTH = inputString.length(); //uncomment this line for use various inputString length
+//        inputString = "qwertyuiopa";
+        inputString = viewDialog.getSomeText();
+        STRING_LENGTH = inputString.length(); //uncomment this line for use various inputString length
 
         if (null == Permutation.checkInputString(inputString)) {
             System.err.println("Метод принимает слово из " + STRING_LENGTH + " любых букв латинского алфавита");
         } else {
-            System.out.println(Arrays.deepToString(Permutation.startPermutation(inputString)));
+//            System.out.println(Arrays.deepToString(Permutation.startPermutation(inputString)));
+            viewDialog.viewData(Arrays.deepToString(Permutation.startPermutation(inputString)));
             System.out.println("Количество перестановок равно: " + (Permutation.getPermutationQty() - 1));
         }
     }
