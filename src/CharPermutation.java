@@ -13,9 +13,9 @@ public class CharPermutation {
             System.err.println("Метод принимает слово из " + Permutation.STRING_LENGTH + " любых букв латинского алфавита");
         } else {
 //            System.out.println(Arrays.deepToString(Permutation.startPermutation(inputString)));
-            viewDialog.viewData(Arrays.deepToString(Permutation.startPermutation(inputString)));
+            viewDialog.viewData(Permutation.startPermutation(inputString));
             System.out.println("Количество перестановок равно: " + (Permutation.getPermutationQty() - 1));
         }
-        System.exit(0);
+//        System.exit(0);
     }
 }

@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.util.List;
 
 public class viewDialog {
     public static String getSomeText() {
@@ -9,12 +10,13 @@ public class viewDialog {
         } while (text.isEmpty());
         return text;
     }
-    public static void viewData(String msg) {
+
+    public static void viewData(List<String> msg) {
         JFrame jfrm = new JFrame("Data");
         jfrm.setSize(400, 300);
         jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JTextArea textArea = new JTextArea(100, 50);
-        textArea.setText(msg);
+        textArea.setText(msg.toString());
         jfrm.add(textArea);
         jfrm.add(new JScrollPane(textArea));
         jfrm.setVisible(true);

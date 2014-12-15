@@ -1,17 +1,19 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public  class Permutation {
     private static int resultSetIndex;
-    static String[] resultStringSet;
+    static List<String> resultStringSet;
     static int permutationQty;
     static int STRING_LENGTH = 4;
 
 
-//    public static int getPermutationQty() {
-//        return permutationQty;
-//    }
+    public static int getPermutationQty() {
+        return permutationQty;
+    }
 
     public static String checkInputString(String inputString) {
         if (inputString != null && inputString.length() == STRING_LENGTH) {
@@ -28,17 +30,18 @@ public  class Permutation {
         return n * factorial(n - 1);
     }
 
-    public static String[] startPermutation(String inputString) {
+    public static List<String> startPermutation(String inputString) {
         permutationQty = factorial(STRING_LENGTH);
         char[] charSet = inputString.toCharArray();
-        resultStringSet = new String[permutationQty];
+        resultStringSet = new ArrayList<String>(permutationQty);
         permutation(charSet, inputString.length());
         return resultStringSet;
     }
 
     private static void permutation(char[] chars, int size) {
         if (size < 2) {
-            resultStringSet[resultSetIndex++] = Arrays.toString(chars);
+            resultStringSet.add(Arrays.toString(chars));
+            resultSetIndex++;
         } else {
             for (int k = 0; k < size; k++) {
                 swap(chars, k, size - 1);
