@@ -5,10 +5,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public  class Permutation {
-    private static int resultSetIndex;
+
+//    private static int resultSetIndex;
     static List<String> resultStringSet;
     static int permutationQty;
     static int STRING_LENGTH = 4;
+    public final static Integer MAX_CHARS = 10;
 
 
     public static int getPermutationQty() {
@@ -17,7 +19,7 @@ public  class Permutation {
 
     public static String checkInputString(String inputString) {
         if (inputString != null && inputString.length() == STRING_LENGTH) {
-            String pattern = "[a-zA-Z]{" + STRING_LENGTH + "}"; //
+            String pattern = "[a-zA-Z0-9]{" + STRING_LENGTH + "}"; //
             Pattern pat = Pattern.compile(pattern);
             Matcher mat = pat.matcher(inputString);
             return (mat.find()) ? (mat.group()) : (null);
@@ -41,7 +43,6 @@ public  class Permutation {
     private static void permutation(char[] chars, int size) {
         if (size < 2) {
             resultStringSet.add(Arrays.toString(chars));
-            resultSetIndex++;
         } else {
             for (int k = 0; k < size; k++) {
                 swap(chars, k, size - 1);
